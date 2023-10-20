@@ -1180,7 +1180,7 @@ overflow:visible;
 	}
 	
 	#menu-btn:hover:before{
-	color:#222;
+	color:#fff;
 	}
 	
 	/* menu toggle animated */
@@ -2749,7 +2749,7 @@ left: 0;
 
 	.btn-line:hover, a.btn-line:hover{
 	background:#fff;
-	color:#111;
+	color:#fff;
 	border-color:#fff;
 	}
 	

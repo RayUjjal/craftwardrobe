@@ -14,7 +14,7 @@ $post_list = new WP_Query(
 ?>
 <style>
     a:hover {
-        color: #fff !important;
+        color: var(--primary-color-2) !important;
     }
 </style>
 <header class="transparent" style="background: rgba(34, 34, 34, .75);">
@@ -68,7 +68,7 @@ $post_list = new WP_Query(
                     </div>
 
                     <div class="md-flex-col col-extra white_hover_color">
-                        <a href="#" class="btn-on-header btn-line">Contact Us</a>
+                        <a href="<?= $root ?>/contact-us" class="btn-on-header btn-line">Contact Us</a>
                     </div>
                 </div>
             </div>

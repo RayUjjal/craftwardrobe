@@ -64,18 +64,57 @@ $post_list = new WP_Query(
                 </div>
             </div>
 
-            <div class="col-lg-3">
-                <h3>Get In Touch</h3>
-                <div class="widget widget-address">
-                    <address>
-                        <span>85 Great Portland Street, First Floor, London, W1W 7L</span>
-                        <span><strong>Email:</strong><a
-                                href="mailto:info@craftwardrobe.co.uk">info@craftwardrobe.co.uk</a></span>
-                        <span><strong>Phone:</strong>+44 2033759375</span>
-                        <span><strong></strong>+44 7456610018</span>
-                    </address>
-                </div>
-            </div>
+            <?php
+            $contact_list = new WP_Query(
+                array(
+                    'post_type' => 'contactus',
+                    'post_status' => 'publish'
+                )
+            );
+            if ($contact_list->have_posts()) {
+                while ($contact_list->have_posts()) {
+                    $contact_list->the_post();
+                    // the_field('description')
+                    $custom = get_post_custom($post->ID);
+                    ?>
+                    <div class="col-lg-3">
+                        <h3>Get In Touch</h3>
+                        <div class="widget widget-address">
+                            <address>
+                                <span>
+                                    <?= isset($custom['address']) ? $custom['address'][0] : "" ?>
+                                </span>
+                                <span>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <strong>Email:</strong>
+                                        </div>
+                                        <div class="col-8">
+                                            <a href="<?= isset($custom['email']) ? $custom['email'][0] : "" ?>">
+                                                <?= isset($custom['email']) ? $custom['email'][0] : "" ?>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </span>
+                                <span>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <strong>Phone:</strong>
+                                        </div>
+                                        <div class="col-8">
+                                            <?= isset($custom['phone']) ? $custom['phone'][0] : "" ?>
+                                        </div>
+                                    </div>
+                                </span>
+                            </address>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+                wp_reset_postdata();
+            }
+            ?>
         </div>
     </div>
 
@@ -85,7 +124,7 @@ $post_list = new WP_Query(
                 <div class="col-md-6">
                     &copy; 2023 Craft Wardrobe, Inc. All rights reserved.
                     Designed and developed by <span class="id-color"><a href="#"
-                            style="color: var(--primary-color-2);">@Developers</a></span>
+                            style="color: var(--primary-color-2);">@UjjalRay</a></span>
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="social-icons">
