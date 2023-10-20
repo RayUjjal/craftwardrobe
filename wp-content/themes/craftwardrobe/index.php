@@ -116,14 +116,14 @@ $root = site_url();
                                     ?>
                                     <div id="testimonial-carousel-single" class="owl-carousel owl-theme wow fadeInUp">
                                         <blockquote class="testimonial-big">
-                                            <span class="d-testi">
+                                            <span class="d-testi" style="padding-bottom:40px;">
                                                 <?= isset($custom['message']) ? $custom['message'][0] : "" ?>
                                             </span>
                                             <!-- <span class="name">Benedict Mervine, Customer</span> -->
                                             <?php
                                             for ($i = 0; $i < $custom['rating'][0]; $i++) {
                                                 ?>
-                                                <i class="fa fa-star" aria-hidden="true" style="color: var(--primary-color-1);"></i>
+                                                <i class="fa fa-star" aria-hidden="true" style="color: var(--primary-color-2);"></i>
                                                 <?php
                                             } ?>
                                         </blockquote>
@@ -172,7 +172,7 @@ $root = site_url();
                                     <div class="de-card-room">
                                         <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?=$post->ID?>">
                                             <div class="d-content">
-                                                <h3><i class="id-color fa fa-circle-o"></i><?= get_the_title() ?></h3>
+                                                <h3 style="padding-bottom: 10%; padding-left: 0px;"><?= get_the_title() ?></h3>
                                                 <!-- <div class="d-text"> -->
                                                 <!-- <?= $custom['description'][0] ?> -->
                                                 <!-- </div> -->

@@ -2773,7 +2773,7 @@ left: 0;
 	}
 	
 	.btn-line:hover:after, a.btn-line:hover:after, a.btn-line.hover:after{
-	color:#111;
+	color:var(--primary-color-2);;
 	}
 	
 	a.btn-text{
@@ -7184,7 +7184,7 @@ a.btn-on-header,
 
 a.btn-on-header:hover,
 .de_light a.btn-on-header:hover{
-	color: #000000 !important;
+	color: #bf9156 !important;
 }
 
 header.smaller .btn-on-header{

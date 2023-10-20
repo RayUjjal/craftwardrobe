@@ -48,7 +48,7 @@ $post = get_post($postid, OBJECT);
                 <!-- content begin -->
                 <div id="content" class="no-bottom no-top">
 
-                    <section id="section-text" style="padding-top:10%;background:#fff">
+                    <section id="section-text" style="padding-top:10%;background:#fff;padding-bottom:5%;">
                         <div class="container">
                             <div class="row align-items-center">
                                 <div class="col-md-12 offset-md-12 text-center wow fadeInUp">
@@ -65,43 +65,42 @@ $post = get_post($postid, OBJECT);
                         </div>
                     </section>
 
-
-                    <section id="section-images" class="fullwidthbanner-container no-top no-bottom" aria-label="section-portfolio"
-                        style="padding-top:0px;">
-                        <div id="content" style="padding-top:0px;">
-                            <div class="container">
-
-                                <!-- portfolio filter begin -->
-                                <div class="row" style="display:none;">
-                                    <div class="col-md-12">
-                                        <ul id="filters" class="wow fadeInUp" data-wow-delay="0s">
-                                            <li class="pull-right"><a href="#" data-filter="*" class="selected">All Projects</a>
-                                            </li>
-                                        </ul>
-
-                                    </div>
-                                </div>
-                                <!-- portfolio filter close -->
-
-                                <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp"
-                                    data-wow-delay=".3s">
-
-                                    <?php
-                                    if(isset($custom['images']))
-                                    foreach ($custom['images'] as $image) {
-                                        ?>
-                                        <!-- gallery item -->
-                                        <div class="item residential">
-                                            <div class="picframe">
-                                                <img src="<?=wp_get_attachment_url($image)?>" alt="" style="height:220px;object-fit: cover;"/>
-                                            </div>
-                                        </div>
-                                        <!-- close gallery item -->
-                                        <?php
-                                    }
+                    <!-- <section>
+                        <div class="row">
+                            <?php
+                            if (isset($custom['images']))
+                                foreach ($custom['images'] as $image) {
                                     ?>
-                                </div>
-                            </div>
+                                    <div class="col-xs-12 col-sm-3">
+                                        <img src="<?= wp_get_attachment_url($image) ?>" alt=""
+                                            style="height:220px;object-fit: cover;width:100%;" />
+                                    </div>
+                                    <?php
+                                }
+                            ?>
+                        </div>
+                    </section> -->
+
+                    <section id="section-images" class="fullwidthbanner-container no-top no-bottom"
+                        aria-label="section-portfolio" style="padding-top:0px !important;padding-bottom:50px !important;">
+                        <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp"
+                            data-wow-delay=".3s">
+
+                            <?php
+                            if (isset($custom['images']))
+                                foreach ($custom['images'] as $image) {
+                                    ?>
+                                    <!-- gallery item -->
+                                    <div class="item residential" style="width:25%;">
+                                        <div class="picframe">
+                                            <img src="<?= wp_get_attachment_url($image) ?>" alt=""
+                                                style="object-fit: cover;height: 220px;" />
+                                        </div>
+                                    </div>
+                                    <!-- close gallery item -->
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </section>
 

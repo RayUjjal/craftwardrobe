@@ -85,7 +85,7 @@ $post_list = new WP_Query(
                 <div class="col-md-6">
                     &copy; 2023 Craft Wardrobe, Inc. All rights reserved.
                     Designed and developed by <span class="id-color"><a href="#"
-                            style="color: var(--primary-color-1);">@Developers</a></span>
+                            style="color: var(--primary-color-2);">@Developers</a></span>
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="social-icons">

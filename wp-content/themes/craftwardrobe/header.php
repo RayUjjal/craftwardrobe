@@ -7,11 +7,16 @@ $post_list = new WP_Query(
         'post_type' => 'wardrobes',
         'post_status' => 'publish',
         'posts_per_page' => -1,
-        'orderby'          => 'title',
-		'order'            => 'ASC'
+        'orderby' => 'title',
+        'order' => 'ASC'
     )
 );
 ?>
+<style>
+    a:hover {
+        color: #fff !important;
+    }
+</style>
 <header class="transparent" style="background: rgba(34, 34, 34, .75);">
     <div class="container">
         <div class="row">
@@ -45,7 +50,9 @@ $post_list = new WP_Query(
                                                 $post_list->the_post();
                                                 the_field('description');
                                                 ?>
-                                                <li><a href="<?= $root ?>/wardrobe?postID=<?=$post->ID?>"><?=the_title()?></a></li>
+                                                <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                                        <?= the_title() ?>
+                                                    </a></li>
                                                 <?php
                                             }
                                             wp_reset_postdata();
@@ -60,8 +67,8 @@ $post_list = new WP_Query(
                         <!-- mainmenu close -->
                     </div>
 
-                    <div class="md-flex-col col-extra">
-                        <a href="20_hotel-booking.html" class="btn-on-header btn-line white_hover_color" style="white_hover_color:hover{color:#fff;}">Contact Us</a>
+                    <div class="md-flex-col col-extra white_hover_color">
+                        <a href="#" class="btn-on-header btn-line">Contact Us</a>
                     </div>
                 </div>
             </div>
