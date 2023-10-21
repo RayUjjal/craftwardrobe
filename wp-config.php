@@ -79,7 +79,10 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+// define( 'WP_DEBUG', false );
+
+define('WP_DEBUG', false);
+// define('WP_DEBUG_LOG', true);
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -94,3 +97,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
+define('FS_METHOD', 'direct');

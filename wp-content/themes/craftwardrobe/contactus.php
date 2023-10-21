@@ -145,7 +145,8 @@ $root = site_url();
                             <div class="row">
                                 <div class="col-md-6 offset-md-6 " data-animation="fadeInRight" data-delay="200">
                                     <div class="inner-padding">
-                                        <form name="contactForm" id='contact_form' method="post">
+                                        <form name="contactForm" id='contact_form' method="post"
+                                            onsubmit="sendMail();return false">
                                             <div class="row">
                                                 <div class="col-md-12 mb10">
                                                     <h3>Send Us Message</h3>
@@ -153,41 +154,44 @@ $root = site_url();
                                                 <div class="col-md-6">
                                                     <div id='name_error' class='error'>Please enter your name.</div>
                                                     <div>
-                                                        <input type='text' name='Name' id='name' class="form-control"
+                                                        <input type='text' name='Name' id='contact_name' class="form-control"
                                                             placeholder="Your Name" required>
                                                     </div>
 
                                                     <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
                                                     <div>
-                                                        <input type='email' name='Email' id='email' class="form-control"
+                                                        <input type='email' name='Email' id='contact_email' class="form-control"
                                                             placeholder="Your Email" required>
                                                     </div>
 
                                                     <div id='phone_error' class='error'>Please enter your phone number.</div>
                                                     <div>
-                                                        <input type='text' name='phone' id='phone' class="form-control"
+                                                        <input type='text' name='phone' id='contact_phone' class="form-control"
                                                             placeholder="Your Phone" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div id='message_error' class='error'>Please enter your message.</div>
                                                     <div>
-                                                        <textarea name='message' id='message' class="form-control"
+                                                        <textarea name='message' id='contact_message' class="form-control"
                                                             placeholder="Your Message" required></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <input type="checkbox" id="contactTnc" name="vehicle1" value="Bike">
+                                                    <input type="checkbox" id="contactTnc">
                                                     <label for="contactTnc">By selecting this,
                                                         you agree to share details with us.</label>
                                                 </div>
 
                                                 <div class="col-md-12">
-                                                    <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div>
+                                                    <!-- <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div> -->
                                                     <p id='submit' class="mt20">
-                                                        <input type='submit' id='send_message' value='Submit Form'
-                                                            class="btn btn-line">
+                                                        <input type='submit' id='send_message' name="send_message"
+                                                            value='Submit Form' class="btn btn-line" disabled>
                                                     </p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div><b id="contact_error"></b></div>
                                                 </div>
                                             </div>
                                         </form>
@@ -218,6 +222,53 @@ $root = site_url();
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
+    <script>;
+        const contactTnc = document.getElementById('contactTnc')
+
+        contactTnc.addEventListener('change', (event) => {
+            if (event.currentTarget.checked) {
+                $('#send_message').prop('disabled', false);
+            } else {
+                $('#send_message').prop('disabled', true);
+            }
+        })
+
+
+        function sendMail() {
+            var subject=$("#contact_name").val()+" wants to connect";
+            var message="Name: "+ $("#contact_name").val()+"<br>"+
+            "Email: "+ $("#contact_email").val()+"<br>"+
+            "Phone: "+ $("#contact_phone").val()+"<br>"+
+            "Message: "+ $("#contact_message").val();
+
+            var data = new FormData();
+            data.append('message', message);
+            data.append('subject',  subject);
+            $.ajax({
+                url: "<?=$root?>/wp-json/craftwardrobe/v1/sendmail/",
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'post',
+                data: data,
+                dataType: 'JSON',
+                success: function (response) {
+                    console.log(response.Message);
+                    if(response.Message=="Success"){
+                        $('#contact_form')[0].reset();
+                        $("#contact_error").css("color", "var(--primary-color-1)")
+                        $("#contact_error").text("*Mail Sent Successfully");
+                    }
+                    else{
+                        $("#contact_error").css("color", "red")
+                        $("#contact_error").text("*Mail Could Not Send.");
+                    }
+
+                }
+            });
+        }
+    </script>
+
     <!-- COOKIES PLUGIN  -->
     <!-- <script>
       $(document).ready(function() {
@@ -233,7 +284,6 @@ $root = site_url();
         });
       });
     </script> -->
-
 
 </body>
 
