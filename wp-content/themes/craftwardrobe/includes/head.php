@@ -2,9 +2,9 @@
 <link rel="icon" href="<?= get_site_icon_url()?>" type="image/gif" sizes="16x16">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
-    content="Archi is best selling interior design website template with responsive stunning design">
+    content="Introducing Craft Wardrobe, an exclusive bespoke furniture service driven by a passion to create visually pleasing and functional spaces. Founded in 2012, the concept behind Craft Wardrobe is to seamlessly blend cultural craftsmanship techniques with modern technology, resulting in exquisite joinery pieces that not only provide ample storage but also make a bold style statement. Originally established as a carpentry business, Craft Wardrobe has grown to become a leading brand for luxurious wardrobes and home storage solutions. Located in the heart of London, we take pride in offering tailor-made designs, expert manufacturing, and impeccable installations, catering to clients across the UK. Experience the epitome of artistry and sophistication with Craft Wardrobe, where creativity knows no bounds.">
 <meta name="keywords"
-    content="architecture,building,business,bootstrap,creative,exterior design,furniture design,gallery,garden design,house,interior design,landscape design,multipurpose,onepage,portfolio,studio">
+    content="">
 <meta name="author" content="">
 
 <!-- CSS Files

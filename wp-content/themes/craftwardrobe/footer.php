@@ -122,9 +122,11 @@ $post_list = new WP_Query(
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    &copy; 2023 Craft Wardrobe, Inc. All rights reserved.
-                    Designed and developed by <span class="id-color"><a href="#"
-                            style="color: var(--primary-color-2);">@UjjalRay</a></span>
+                    &copy; 2023 Craft Wardrobe, Inc. All rights reserved.<br>
+                    Designed and developed by <span class="id-color"><a href="https://ujjalray.com/"
+                            style="color: var(--primary-color-2);" target="_blank">@UjjalRay</a></span> &
+                    <span><a href="https://www.linkedin.com/in/rishabhdaliya/" style="color: var(--primary-color-2);"
+                            target="_blank">@Rishabhdaliya</a></span>
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="social-icons">
