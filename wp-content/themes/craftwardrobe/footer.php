@@ -15,7 +15,7 @@ $post_list = new WP_Query(
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="<?= get_header_image() ?>" class="logo-small" alt="">
+                <img src="<?= get_header_image() ?>" class="logo-small" alt="<?= display_alt_text(); ?>">
             </div>
 
             <div class="col-lg-3">

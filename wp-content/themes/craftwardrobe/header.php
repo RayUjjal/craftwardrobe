@@ -2,6 +2,26 @@
 $template_dir = get_template_directory_uri();
 $root = site_url();
 
+function display_alt_text()
+{
+
+    $data = get_object_vars(get_theme_mod('header_image_data'));
+    $image_id = is_array($data) && isset($data['attachment_id'])
+        ? $data['attachment_id'] : false;
+
+    if ($image_id) {
+
+        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+        return $image_alt;
+
+    }else{
+        return "";
+    }
+
+}
+
+add_action('wp_enqueue_scripts', 'display_alt_text');
+
 $post_list = new WP_Query(
     array(
         'post_type' => 'wardrobes',
@@ -25,7 +45,8 @@ $post_list = new WP_Query(
                     <!-- logo begin -->
                     <div id="logo">
                         <a href="<?= $root ?>">
-                            <img class="logo" style="width:80%;" src="<?= get_header_image() ?>" alt="">
+                            <img class="logo" style="width:80%;" src="<?= get_header_image() ?>"
+                                alt="<?= display_alt_text(); ?>">
                         </a>
                     </div>
                     <!-- logo close -->

@@ -2,6 +2,7 @@
 $template_dir = get_template_directory_uri();
 $root = site_url();
 $testimonials_bg="";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,7 @@ $testimonials_bg="";
                     $home_list->the_post();
                     // the_field('description')
                     $custom = get_post_custom($post->ID);
-                    $testimonials_bg=isset($custom['background']) ? wp_get_attachment_url($custom['background'][0]) : "";
+                    $testimonials_bg=isset($custom['background']) ? $custom['background'] : "";
                     ?>
                     <!-- section begin -->
                     <section id="section-slider" class="fullwidthbanner-container text-light" aria-label="section-slider">
@@ -49,7 +50,7 @@ $testimonials_bg="";
                                         ?>
                                         <li data-transition="fade" data-slotamount="10" data-masterspeed="800" data-thumb="">
                                             <!--  BACKGROUND IMAGE -->
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="" />
+                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" />
                                         </li>
                                         <?php
                                     }
@@ -68,7 +69,7 @@ $testimonials_bg="";
                                         ?>
                                         <div class="col-lg-6 col-12">
                                             <div class="spacer-double sm-hide"></div>
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="" class="img-responsive wow fadeInUp"
+                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" class="img-responsive wow fadeInUp"
                                                 data-wow-duration="1s">
                                         </div>
                                         <?php
@@ -105,7 +106,7 @@ $testimonials_bg="";
             if ($testimonials_list->have_posts()) { ?>
 
                 <section id="section-quotes" aria-label="section" class="text-light jarallax">
-                    <img src="<?= $testimonials_bg ?>" class="jarallax-img" alt="">
+                    <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img" alt="<?=get_post_meta( $testimonials_bg[0], '_wp_attachment_image_alt', true )?>">
                     <div class="container">
                         <div class="row">
 

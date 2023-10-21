@@ -49,7 +49,7 @@ $root = site_url();
                   foreach ($custom['banner'] as $image) {
                     ?>
                     <li data-transition="fade" data-slotamount="10" data-masterspeed="800" data-thumb="">
-                      <img src="<?= wp_get_attachment_url($image) ?>" alt="" />
+                      <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" />
                       <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195" data-speed="800"
                         data-start="500" data-easing="easeInOutExpo" data-endspeed="400">
                         <h1>About Us</h1>
@@ -72,7 +72,7 @@ $root = site_url();
                     ?>
                     <div class="col-lg-6 col-12">
                       <div class="spacer-double sm-hide"></div>
-                      <img src="<?= wp_get_attachment_url($image) ?>" alt="" class="img-responsive wow fadeInUp"
+                      <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" class="img-responsive wow fadeInUp"
                         data-wow-duration="1s">
                     </div>
                     <?php
@@ -96,7 +96,7 @@ $root = site_url();
               foreach ($custom['s2-description__image'] as $image) {
                 ?>
                 <div class="image-container col-md-5 pull-left" data-delay="0">
-                  <img src="<?= wp_get_attachment_url($image) ?>" alt="" style="object-fit: cover; width: 100%;padding: 0;">
+                  <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" style="object-fit: cover; width: 100%;padding: 0;">
                 </div>
                 <?php
               }

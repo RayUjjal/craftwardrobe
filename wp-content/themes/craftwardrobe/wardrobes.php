@@ -66,22 +66,6 @@ $post = get_post($postid, OBJECT);
                         </div>
                     </section>
 
-                    <!-- <section>
-                        <div class="row">
-                            <?php
-                            if (isset($custom['images']))
-                                foreach ($custom['images'] as $image) {
-                                    ?>
-                                    <div class="col-xs-12 col-sm-3">
-                                        <img src="<?= wp_get_attachment_url($image) ?>" alt=""
-                                            style="height:220px;object-fit: cover;width:100%;" />
-                                    </div>
-                                    <?php
-                                }
-                            ?>
-                        </div>
-                    </section> -->
-
                     <section id="section-images" class="fullwidthbanner-container no-top no-bottom"
                         aria-label="section-portfolio" style="padding-top:0px !important;padding-bottom:50px !important;">
                         <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp"
@@ -94,7 +78,7 @@ $post = get_post($postid, OBJECT);
                                     <!-- gallery item -->
                                     <div class="item residential" style="width:25%;">
                                         <div class="picframe images">
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt=""
+                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>"
                                                 style="object-fit: cover;height: 220px;" />
                                         </div>
                                     </div>
