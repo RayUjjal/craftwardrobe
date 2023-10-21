@@ -18,6 +18,7 @@ $post = get_post($postid, OBJECT);
     <?php
     include("includes/head.php");
     ?>
+    <link href="<?= $template_dir ?>/css/wardrobes.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="homepage" class="de_light">
@@ -92,7 +93,7 @@ $post = get_post($postid, OBJECT);
                                     ?>
                                     <!-- gallery item -->
                                     <div class="item residential" style="width:25%;">
-                                        <div class="picframe">
+                                        <div class="picframe images">
                                             <img src="<?= wp_get_attachment_url($image) ?>" alt=""
                                                 style="object-fit: cover;height: 220px;" />
                                         </div>
@@ -130,6 +131,11 @@ $post = get_post($postid, OBJECT);
         <!-- footer begin -->
         <?= get_footer() ?>
         <!-- footer close -->
+
+        <div id="image-viewer">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="full-image">
+        </div>
     </div>
 
     <!-- Javascript Files
@@ -165,6 +171,15 @@ $post = get_post($postid, OBJECT);
                 navigationType: "none",
                 dottedOverlay: ""
             });
+        });
+
+        $(".images img").click(function () {
+            $("#full-image").attr("src", $(this).attr("src"));
+            $('#image-viewer').show();
+        });
+
+        $("#image-viewer .close").click(function () {
+            $('#image-viewer').hide();
         });
     </script>
 

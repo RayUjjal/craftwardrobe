@@ -1,6 +1,7 @@
 <?php
 $template_dir = get_template_directory_uri();
 $root = site_url();
+$testimonials_bg="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,7 @@ $root = site_url();
                     $home_list->the_post();
                     // the_field('description')
                     $custom = get_post_custom($post->ID);
+                    $testimonials_bg=isset($custom['background']) ? wp_get_attachment_url($custom['background'][0]) : "";
                     ?>
                     <!-- section begin -->
                     <section id="section-slider" class="fullwidthbanner-container text-light" aria-label="section-slider">
@@ -103,7 +105,7 @@ $root = site_url();
             if ($testimonials_list->have_posts()) { ?>
 
                 <section id="section-quotes" aria-label="section" class="text-light jarallax">
-                    <img src="<?= $template_dir ?>/images-hotel/bg/1.jpg" class="jarallax-img" alt="">
+                    <img src="<?= $testimonials_bg ?>" class="jarallax-img" alt="">
                     <div class="container">
                         <div class="row">
 
