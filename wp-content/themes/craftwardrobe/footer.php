@@ -15,7 +15,7 @@ $post_list = new WP_Query(
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="<?= get_header_image() ?>" class="logo-small" alt="<?= display_alt_text(); ?>">
+                <img src="<?= $template_dir ?>/assets/logo_green.jpg" class="logo-small" alt="<?= display_alt_text(); ?>">
             </div>
 
             <div class="col-lg-3">
@@ -132,7 +132,7 @@ $post_list = new WP_Query(
                     <div class="social-icons">
                         <a href="https://www.facebook.com/people/Craft-Wardrobe/100091172341094/"><i
                                 class="fa fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/craftwardrobeuk/?igshid=MzRlODBiNWFlZA%3D%3D"><i
+                        <a href="https://www.instagram.com/craftwardrobeuk/?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i
                                 class="fa fa-instagram fa-lg"></i></a>
                     </div>
                 </div>

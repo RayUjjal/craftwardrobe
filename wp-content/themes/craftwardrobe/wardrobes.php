@@ -58,6 +58,9 @@ $post = get_post($postid, OBJECT);
                                         <?= get_the_title() ?>
                                     </h2>
                                     <div class="separator mt0"><span><i class="fa fa-circle"></i></span></div>
+                                    <p>
+                                        <?= $custom['description'][0] ?>
+                                    </p>
                                 </div>
 
                                 <div class="clearfix"></div>
@@ -78,7 +81,8 @@ $post = get_post($postid, OBJECT);
                                     <!-- gallery item -->
                                     <div class="item residential" style="width:25%;">
                                         <div class="picframe images">
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>"
+                                            <img src="<?= wp_get_attachment_url($image) ?>"
+                                                alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
                                                 style="object-fit: cover;height: 220px;" />
                                         </div>
                                     </div>
@@ -88,23 +92,6 @@ $post = get_post($postid, OBJECT);
                             ?>
                         </div>
                     </section>
-
-
-                    <section id="section-text" class="pt60" data-bgcolor="#efe7d3">
-                        <div class="container">
-                            <div class="row align-items-center">
-                                <div class="col-md-12 offset-md-12 text-center wow fadeInUp">
-                                    <p>
-                                        <?= $custom['description'][0] ?>
-                                    </p>
-                                </div>
-
-                                <div class="clearfix"></div>
-
-                            </div>
-                        </div>
-                    </section>
-
                 </div>
                 <?php
             }

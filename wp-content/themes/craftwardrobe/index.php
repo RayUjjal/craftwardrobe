@@ -1,7 +1,7 @@
 <?php
 $template_dir = get_template_directory_uri();
 $root = site_url();
-$testimonials_bg="";
+$testimonials_bg = "";
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $testimonials_bg="";
                     $home_list->the_post();
                     // the_field('description')
                     $custom = get_post_custom($post->ID);
-                    $testimonials_bg=isset($custom['background']) ? $custom['background'] : "";
+                    $testimonials_bg = isset($custom['background']) ? $custom['background'] : "";
                     ?>
                     <!-- section begin -->
                     <section id="section-slider" class="fullwidthbanner-container text-light" aria-label="section-slider">
@@ -48,9 +48,10 @@ $testimonials_bg="";
                                 if (isset($custom['hero-banner']))
                                     foreach ($custom['hero-banner'] as $image) {
                                         ?>
-                                        <li data-transition="fade" data-slotamount="10" data-masterspeed="800" data-thumb="">
+                                        <li data-transition="fade" data-slotamount="1" data-masterspeed="800" data-thumb="">
                                             <!--  BACKGROUND IMAGE -->
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" />
+                                            <img src="<?= wp_get_attachment_url($image) ?>"
+                                                alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>" />
                                         </li>
                                         <?php
                                     }
@@ -61,16 +62,17 @@ $testimonials_bg="";
                     <!-- section close -->
 
                     <section id="section-intro" class="pt60" data-bgcolor="#efe7d3">
-                        <div class="container">
+                        <div class="container" style="margin:0; max-width: 100% !important;">
                             <div class="row align-items-center">
                                 <?php
                                 if (isset($custom['about_us_image']))
                                     foreach ($custom['about_us_image'] as $image) {
                                         ?>
                                         <div class="col-lg-6 col-12">
-                                            <div class="spacer-double sm-hide"></div>
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" class="img-responsive wow fadeInUp"
-                                                data-wow-duration="1s">
+                                            <!-- <div class="spacer-double sm-hide"></div> -->
+                                            <img src="<?= wp_get_attachment_url($image) ?>"
+                                                alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
+                                                class="img-responsive wow fadeInUp" data-wow-duration="1s" style="border:2px solid var(--primary-color-1)">
                                         </div>
                                         <?php
                                     }
@@ -106,18 +108,19 @@ $testimonials_bg="";
             if ($testimonials_list->have_posts()) { ?>
 
                 <section id="section-quotes" aria-label="section" class="text-light jarallax">
-                    <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img" alt="<?=get_post_meta( $testimonials_bg[0], '_wp_attachment_image_alt', true )?>">
+                    <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img"
+                        alt="<?= get_post_meta($testimonials_bg[0], '_wp_attachment_image_alt', true) ?>" style="filter: brightness(70%);">
                     <div class="container">
                         <div class="row">
 
                             <div class="col-md-8 offset-md-2 wow fadeInUp">
-                                <?php
-                                while ($testimonials_list->have_posts()) {
-                                    $testimonials_list->the_post();
-                                    // the_field('description')
-                                    $custom = get_post_custom($post->ID);
-                                    ?>
-                                    <div id="testimonial-carousel-single" class="owl-carousel owl-theme wow fadeInUp">
+                                <div id="testimonial-carousel-single" class="owl-carousel owl-theme wow fadeInUp">
+                                    <?php
+                                    while ($testimonials_list->have_posts()) {
+                                        $testimonials_list->the_post();
+                                        // the_field('description')
+                                        $custom = get_post_custom($post->ID);
+                                        ?>
                                         <blockquote class="testimonial-big">
                                             <span class="d-testi" style="padding-bottom:40px;">
                                                 <?= isset($custom['message']) ? $custom['message'][0] : "" ?>
@@ -130,16 +133,13 @@ $testimonials_bg="";
                                                 <?php
                                             } ?>
                                         </blockquote>
-                                    </div>
-                                    <?php
-                                }
-                                wp_reset_postdata();
-                                ?>
-
+                                        <?php
+                                    }
+                                    wp_reset_postdata();
+                                    ?>
+                                </div>
                             </div>
-
                         </div>
-
                     </div>
                 </section>
                 <?php
@@ -158,12 +158,13 @@ $testimonials_bg="";
             );
             if ($category_list->have_posts()) { ?>
                 <section id="section-text">
-                    <div class="container">
+                    <div class="container" style="max-width:100%;">
                         <div class="row align-items-center">
                             <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
                                 <h2>Our Categories</h2>
                                 <div class="separator mt0"><span><i class="fa fa-circle"></i></span></div>
-                                <p>With a focus on furnitures, explore a wide selection of top-quality products designed to elevate your living spaces with comfort and elegance.</p>
+                                <p>With a focus on furnitures, explore a wide selection of top-quality products designed to
+                                    elevate your living spaces with comfort and elegance.</p>
                             </div>
                             <?php
                             while ($category_list->have_posts()) {
@@ -173,16 +174,17 @@ $testimonials_bg="";
                                 ?>
                                 <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:10px;">
                                     <div class="de-card-room">
-                                        <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?=$post->ID?>">
+                                        <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
                                             <div class="d-content">
-                                                <h3 style="padding-bottom: 10%; padding-left: 0px;"><?= get_the_title() ?></h3>
-                                                <!-- <div class="d-text"> -->
-                                                <!-- <?= $custom['description'][0] ?> -->
-                                                <!-- </div> -->
+                                                <h3 style="padding-bottom: 10%; padding-left: 0px;">
+                                                    <?= get_the_title() ?>
+                                                </h3>
                                                 <span href="#" class="btn-main"></span>
                                             </div>
                                         </a>
-                                        <div class="d-image" data-bgimage="url(<?= isset($custom['images']) ? wp_get_attachment_url($custom['images'][0]) : "" ?>) center"></div>
+                                        <div class="d-image"
+                                            data-bgimage="url(<?= isset($custom['images']) ? wp_get_attachment_url($custom['images'][0]) : "" ?>) center" >
+                                        </div>
                                     </div>
                                 </div>
                                 <?php
@@ -225,7 +227,7 @@ $testimonials_bg="";
             var revapi;
 
             revapi = jQuery('#revolution-slider').revolution({
-                delay: 15000,
+                delay: 3000,
                 startwidth: 1170,
                 startheight: 500,
                 hideThumbs: 10,
