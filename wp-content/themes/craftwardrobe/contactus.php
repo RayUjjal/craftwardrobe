@@ -48,7 +48,8 @@ $root = site_url();
                                     foreach ($custom['banner'] as $image) {
                                         ?>
                                         <li data-transition="fade" data-slotamount="10" data-masterspeed="800" data-thumb="">
-                                            <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>" />
+                                            <img src="<?= wp_get_attachment_url($image) ?>"
+                                                alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>" />
                                             <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195"
                                                 data-speed="800" data-start="500" data-easing="easeInOutExpo" data-endspeed="400">
                                                 <h1>
@@ -133,9 +134,14 @@ $root = site_url();
                         if (isset($custom['image']))
                             foreach ($custom['image'] as $image) {
                                 ?>
-                                <div class="image-container col-md-5 pull-left" data-delay="0">
-                                    <img src="<?= wp_get_attachment_url($image) ?>" alt="<?=get_post_meta( $image, '_wp_attachment_image_alt', true )?>"
-                                        style="object-fit: cover; width: 100%;padding: 0;">
+                                <div class="image-container col-md-5 pull-left" data-delay="0" style="">
+                                    <img src="<?= wp_get_attachment_url($image) ?>"
+                                        alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
+                                        style="object-fit: cover; width: 100%; height: 100%; padding: 0;">
+                                    <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195"
+                                        data-speed="800" data-start="500" data-easing="easeInOutExpo" data-endspeed="400"
+                                        style="position:relative;top:-90%;">
+                                    </div>
                                 </div>
                                 <?php
                             }
@@ -221,53 +227,9 @@ $root = site_url();
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-
-    <script>;
-        const contactTnc = document.getElementById('contactTnc')
-
-        contactTnc.addEventListener('change', (event) => {
-            if (event.currentTarget.checked) {
-                $('#send_message').prop('disabled', false);
-            } else {
-                $('#send_message').prop('disabled', true);
-            }
-        })
+    <script src="<?= $template_dir ?>/js/sendMail.js"></script>
 
 
-        function sendMail() {
-            var subject=$("#contact_name").val()+" wants to connect";
-            var message="Name: "+ $("#contact_name").val()+"<br>"+
-            "Email: "+ $("#contact_email").val()+"<br>"+
-            "Phone: "+ $("#contact_phone").val()+"<br>"+
-            "Message: "+ $("#contact_message").val();
-
-            var data = new FormData();
-            data.append('message', message);
-            data.append('subject',  subject);
-            $.ajax({
-                url: "<?=$root?>/wp-json/craftwardrobe/v1/sendmail/",
-                cache: false,
-                contentType: false,
-                processData: false,
-                type: 'post',
-                data: data,
-                dataType: 'JSON',
-                success: function (response) {
-                    console.log(response.Message);
-                    if(response.Message=="Success"){
-                        $('#contact_form')[0].reset();
-                        $("#contact_error").css("color", "var(--primary-color-1)")
-                        $("#contact_error").text("*Mail Sent Successfully");
-                    }
-                    else{
-                        $("#contact_error").css("color", "red")
-                        $("#contact_error").text("*Mail Could Not Send.");
-                    }
-
-                }
-            });
-        }
-    </script>
 
     <!-- COOKIES PLUGIN  -->
     <!-- <script>

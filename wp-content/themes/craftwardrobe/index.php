@@ -72,7 +72,8 @@ $testimonials_bg = "";
                                             <!-- <div class="spacer-double sm-hide"></div> -->
                                             <img src="<?= wp_get_attachment_url($image) ?>"
                                                 alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
-                                                class="img-responsive wow fadeInUp" data-wow-duration="1s" style="border:2px solid var(--primary-color-1)">
+                                                class="img-responsive wow fadeInUp" data-wow-duration="1s"
+                                                style="border:2px solid var(--primary-color-1)">
                                         </div>
                                         <?php
                                     }
@@ -109,7 +110,8 @@ $testimonials_bg = "";
 
                 <section id="section-quotes" aria-label="section" class="text-light jarallax">
                     <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img"
-                        alt="<?= get_post_meta($testimonials_bg[0], '_wp_attachment_image_alt', true) ?>" style="filter: brightness(70%);">
+                        alt="<?= get_post_meta($testimonials_bg[0], '_wp_attachment_image_alt', true) ?>"
+                        style="filter: brightness(70%);">
                     <div class="container">
                         <div class="row">
 
@@ -183,7 +185,7 @@ $testimonials_bg = "";
                                             </div>
                                         </a>
                                         <div class="d-image"
-                                            data-bgimage="url(<?= isset($custom['images']) ? wp_get_attachment_url($custom['images'][0]) : "" ?>) center" >
+                                            data-bgimage="url(<?= isset($custom['images']) ? wp_get_attachment_url($custom['images'][0]) : "" ?>) center">
                                         </div>
                                     </div>
                                 </div>
@@ -204,6 +206,112 @@ $testimonials_bg = "";
         <?= get_footer() ?>
         <!-- footer close -->
     </div>
+    <div class="popup_container closePopup">
+        <div class="row popup_form_contactus align-items-center">
+            <?php
+            $contact_list = new WP_Query(
+                array(
+                    'post_type' => 'contactus',
+                    'post_status' => 'publish'
+                )
+            );
+            if ($contact_list->have_posts()) {
+                while ($contact_list->have_posts()) {
+                    $contact_list->the_post();
+                    // the_field('description')
+                    $custom = get_post_custom($post->ID);
+                    ?>
+                    <section id="" class="side-bg no-padding">
+                        <?php
+                        if (isset($custom['image']))
+                            foreach ($custom['image'] as $image) {
+                                ?>
+                                <div class="image-container col-md-5 pull-left" data-delay="0" style="height:100%;">
+                                    <img src="<?= wp_get_attachment_url($image) ?>"
+                                        alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
+                                        style="object-fit: cover; width: 100%; height: 100%; padding: 0;">
+                                    <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195"
+                                        data-speed="800" data-start="500" data-easing="easeInOutExpo" data-endspeed="400"
+                                        style="position:relative;top:-90%;">
+                                        <h1 style="color:white;">
+                                            You've Made the <br>Right Choice!
+                                        </h1>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        ?>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 offset-md-6 " data-animation="fadeInRight" data-delay="200">
+                                    <div class="inner-padding contactForm">
+                                        <form name="contactForm" id='contact_form' method="post"
+                                            onsubmit="sendMail();return false">
+                                            <div class="row">
+                                                <div class="col-md-12 mb10">
+                                                    <h3>Send Us Message</h3>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id='name_error' class='error'>Please enter your name.</div>
+                                                    <div>
+                                                        <input type='text' name='Name' id='contact_name' class="form-control"
+                                                            placeholder="Your Name" required>
+                                                    </div>
+
+                                                    <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
+                                                    <div>
+                                                        <input type='email' name='Email' id='contact_email' class="form-control"
+                                                            placeholder="Your Email" required>
+                                                    </div>
+
+                                                    <div id='phone_error' class='error'>Please enter your phone number.</div>
+                                                    <div>
+                                                        <input type='text' name='phone' id='contact_phone' class="form-control"
+                                                            placeholder="Your Phone" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div id='message_error' class='error'>Please enter your message.</div>
+                                                    <div>
+                                                        <textarea name='message' id='contact_message' class="form-control"
+                                                            placeholder="Your Message" required></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="checkbox" id="contactTnc">
+                                                    <label for="contactTnc">By selecting this,
+                                                        you agree to share details with us.</label>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <!-- <div class="g-recaptcha" data-sitekey="copy-your-site-key-here"></div> -->
+                                                    <p id='submit' class="mt20">
+                                                        <input type='submit' id='send_message' name="send_message"
+                                                            value='Submit Form' class="btn btn-line" disabled>
+                                                    </p>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div><b id="contact_error"></b></div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="closeContainer align-items-center">
+                            <span class="close">&times;</span>
+                        </div>
+                    </section>
+                    <?php
+                }
+                wp_reset_postdata();
+            }
+            ?>
+        </div>
+    </div>
 
     <!-- Javascript Files
     ================================================== -->
@@ -218,6 +326,7 @@ $testimonials_bg = "";
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="<?= $template_dir ?>/js/sendMail.js"></script>
 
     <script>
         $(function () {
