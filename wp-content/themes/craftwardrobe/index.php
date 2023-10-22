@@ -356,6 +356,7 @@ $testimonials_bg = "";
             $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({ default_offset_pct: 0.5, orientation: 'vertical' });
         });
     </script>
+    
 
 </body>
 
