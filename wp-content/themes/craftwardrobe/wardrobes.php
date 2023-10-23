@@ -69,44 +69,40 @@ $post = get_post($postid, OBJECT);
                         </div>
                     </section>
 
-                    <section id="section-images" class="fullwidthbanner-container no-top no-bottom"
-                        aria-label="section-portfolio" style="padding-top:0px !important;padding-bottom:50px !important;">
-                        <div id="gallery" class="gallery full-gallery de-gallery pf_full_width pf_4_cols wow fadeInUp"
-                            data-wow-delay=".3s">
-
-                            <?php
-                            if (isset($custom['images'])) {
-                                $count = 1;
-                                ?>
-                                <script>
-                                    var totalImages="<?=sizeof($custom['images'])?>";
-                                </script>
+                    <section id="" style="padding-top:0; padding-bottom:24px;">
+                        <div class="container" style="max-width:100%;">
+                            <div class="row align-items-center">
                                 <?php
-                                foreach ($custom['images'] as $image) {
+                                if (isset($custom['images'])) {
+                                    $count = 1;
                                     ?>
-                                    <!-- gallery item -->
-                                    <div class="item residential" style="width:25%;">
-                                        <div class="picframe images">
-                                            <img src="<?= wp_get_attachment_url($image) ?>"
-                                                alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
-                                                style="object-fit: cover;height: 220px;" id="img_<?=$count?>"/>
-                                        </div>
-                                    </div>
-                                    <!-- close gallery item -->
+                                    <script>
+                                        var totalImages = "<?= sizeof($custom['images']) ?>";
+                                    </script>
                                     <?php
-                                    $count++;
+                                    foreach ($custom['images'] as $image) {
+                                        ?>
+                                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:24px;">
+                                            <div class="de-card-room images">
+                                                <img class="d-image" src="<?= wp_get_attachment_url($image) ?>"
+                                                    alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>" id="img_<?= $count ?>" />
+                                            </div>
+                                        </div>
+                                        <?php
+                                        $count++;
+                                    }
                                 }
-                            }
-                            ?>
+                                ?>
+                            </div>
                         </div>
                     </section>
+
                 </div>
                 <?php
             }
             wp_reset_postdata();
         }
         ?>
-
         <!-- footer begin -->
         <?= get_footer() ?>
         <!-- footer close -->

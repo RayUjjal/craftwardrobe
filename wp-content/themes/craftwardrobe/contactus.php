@@ -128,6 +128,20 @@ $root = site_url();
                         </div>
                     </section>
 
+                    <!-- <section id="de-map" aria-label="map-container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="map-container map-fullwidth">
+                                        <iframe
+                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4965.09364761289!2d-0.1538274308631427!3d51.521529564945276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b3a9cd87457%3A0x9734f33aa59affda!2sThe%20London%20Office!5e0!3m2!1sen!2sin!4v1698087484826!5m2!1sen!2sin"
+                                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section> -->
 
                     <section id="" class="side-bg no-padding">
                         <?php

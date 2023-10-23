@@ -6626,6 +6626,7 @@ a:hover,
 .picframe {
 	position: relative;
 	overflow: hidden;
+	margin: -20px 5px 5px 5px;
 }
 
 .de_large-portfolio {
@@ -7622,6 +7623,7 @@ h2.slide-title {
 }
 
 .de-card-room .d-image {
+	object-fit: cover;
 	position: absolute;
 	width: 110%;
 	height: 110%;

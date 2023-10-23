@@ -43,6 +43,9 @@
 }
 
 @media screen and (max-width: 767px) {
+    .image-container{
+        display: none;
+    }
     .popup_container {
         padding: 10%;
     }
@@ -53,7 +56,8 @@
     }
 
     .contactForm {
-        padding-top: 0;
+        padding-top: 30px;
+        padding-bottom: 0px;
     }
 
     .closeContainer span {

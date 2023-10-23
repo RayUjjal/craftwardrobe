@@ -247,7 +247,7 @@ $testimonials_bg = "";
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 offset-md-6 " data-animation="fadeInRight" data-delay="200">
+                                <div class="col-md-12 offset-lg-6 " data-animation="fadeInRight" data-delay="200">
                                     <div class="inner-padding contactForm">
                                         <form name="contactForm" id='contact_form' method="post"
                                             onsubmit="sendMail();return false">
