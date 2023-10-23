@@ -83,10 +83,6 @@ $root = site_url();
                 <div class="col-lg-6 wow fadeIn">
                   <div class="padding20">
                     <?= isset($custom['about-us']) ? $custom['about-us'][0] : "" ?>
-
-                    <a href="<?= $root ?>/about-us" class="btn-custom font-weight-bold text-white">Read
-                      More</a>
-
                   </div>
                 </div>
 
