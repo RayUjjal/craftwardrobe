@@ -53,7 +53,6 @@ a.btn-custom,
 a.btn-slider.btn-color,
 .owl-theme .owl-controls .owl-buttons div,
 .owl-theme .owl-dots .owl-dot.active span,
-.social-icons i:hover,
 #menu-btn:hover,
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link,
 .picframe.s2 span.overlay,
@@ -80,6 +79,11 @@ input[type=submit].btn-custom,
 .de-post-poster .d-tag
 {
 	background-color:var(--primary-color-1);
+}
+
+.social-icons i:hover{
+	color:var(--primary-color-2);
+	background: #ffffff00;
 }
 
 .bg-color-2,

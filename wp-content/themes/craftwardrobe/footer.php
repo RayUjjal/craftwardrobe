@@ -15,10 +15,10 @@ $post_list = new WP_Query(
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <img src="<?= $template_dir ?>/assets/logo_green.jpg" class="logo-small" alt="<?= display_alt_text(); ?>">
+                <img src="<?= get_header_image() ?>" class="logo-small" alt="<?= display_alt_text(); ?>">
             </div>
 
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
                 <div class="widget widget_recent_post">
                     <h3>Quick Links</h3>
                     <ul>
@@ -27,7 +27,7 @@ $post_list = new WP_Query(
                         <li><a href="#">Our Vision</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-lg-3">
                 <div class="widget widget_recent_post">
@@ -35,24 +35,17 @@ $post_list = new WP_Query(
                     <ul>
                         <?php
                         if ($post_list->have_posts()) {
-                            ?>
-                            <li><a href="#">Categories</a>
-                                <ul>
-                                    <?php
-                                    while ($post_list->have_posts()) {
-                                        $post_list->the_post();
-                                        the_field('description');
-                                        ?>
-                                        <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
-                                                <?= the_title() ?>
-                                            </a></li>
-                                        <?php
-                                    }
-                                    wp_reset_postdata();
-                                    ?>
-                                </ul>
-                            </li>
-                            <?php
+                            while ($post_list->have_posts()) {
+                                $post_list->the_post();
+                                the_field('description');
+                                ?>
+                                <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                        <?= the_title() ?>
+                                    </a></li>
+                                <?php
+                            }
+                            wp_reset_postdata();
+
                         }
                         ?>
                         <!-- <li><a href="#">Standart Room</a></li>
@@ -61,6 +54,26 @@ $post_list = new WP_Query(
                         <li><a href="#">Family Room</a></li>
                         <li><a href="#">President Room</a></li> -->
                     </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <h3>Office Hours</h3>
+                <div class="widget widget-address">
+                    <address>
+                        <span>
+                            MONDAY TO FRIDAY<br>
+                            9:00 AM - 6:00 PM
+                        </span>
+                        <span>
+                            SATURDAY<br>
+                            9:00 AM - 5:00 PM
+                        </span>
+                        <span>
+                            SUNDAYS<br>
+                            CLOSED
+                        </span>
+                    </address>
                 </div>
             </div>
 
@@ -131,9 +144,9 @@ $post_list = new WP_Query(
                 <div class="col-md-6 text-right">
                     <div class="social-icons">
                         <a href="https://www.facebook.com/people/Craft-Wardrobe/100091172341094/"><i
-                                class="fa fa-facebook fa-lg"></i></a>
+                                class="fa fa-facebook fa-lg" style="font-size: 30px;"></i></a>
                         <a href="https://www.instagram.com/craftwardrobeuk/?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"><i
-                                class="fa fa-instagram fa-lg"></i></a>
+                                class="fa fa-instagram fa-lg" style="font-size: 30px;"></i></a>
                     </div>
                 </div>
                 <!-- <div class="col-md-6 text-right">

@@ -75,7 +75,13 @@ $post = get_post($postid, OBJECT);
                             data-wow-delay=".3s">
 
                             <?php
-                            if (isset($custom['images']))
+                            if (isset($custom['images'])) {
+                                $count = 1;
+                                ?>
+                                <script>
+                                    var totalImages="<?=sizeof($custom['images'])?>";
+                                </script>
+                                <?php
                                 foreach ($custom['images'] as $image) {
                                     ?>
                                     <!-- gallery item -->
@@ -83,12 +89,14 @@ $post = get_post($postid, OBJECT);
                                         <div class="picframe images">
                                             <img src="<?= wp_get_attachment_url($image) ?>"
                                                 alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
-                                                style="object-fit: cover;height: 220px;" />
+                                                style="object-fit: cover;height: 220px;" id="img_<?=$count?>"/>
                                         </div>
                                     </div>
                                     <!-- close gallery item -->
                                     <?php
+                                    $count++;
                                 }
+                            }
                             ?>
                         </div>
                     </section>
@@ -104,8 +112,11 @@ $post = get_post($postid, OBJECT);
         <!-- footer close -->
 
         <div id="image-viewer">
+            <div class="left-arrow"></div>
             <span class="close">&times;</span>
             <img class="modal-content" id="full-image">
+            <div class="right-arrow"></div>
+
         </div>
     </div>
 
@@ -123,36 +134,8 @@ $post = get_post($postid, OBJECT);
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="<?= $template_dir ?>/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-    <script>
-        $(function () {
-            // --------------------------------------------------
-            // revolution slider
-            // --------------------------------------------------
-            var revapi;
-
-            revapi = jQuery('#revolution-slider').revolution({
-                delay: 15000,
-                startwidth: 1170,
-                startheight: 500,
-                hideThumbs: 10,
-                fullWidth: "on",
-                fullScreen: "on",
-                fullScreenOffsetContainer: "",
-                touchenabled: "on",
-                navigationType: "none",
-                dottedOverlay: ""
-            });
-        });
-
-        $(".images img").click(function () {
-            $("#full-image").attr("src", $(this).attr("src"));
-            $('#image-viewer').show();
-        });
-
-        $("#image-viewer .close").click(function () {
-            $('#image-viewer').hide();
-        });
-    </script>
+    <!-- image viewer -->
+    <script src="<?= $template_dir ?>/js/image-viewer.js"></script>
 
     <script>
         $(window).on("load", function () {

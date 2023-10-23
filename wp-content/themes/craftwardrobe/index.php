@@ -108,10 +108,13 @@ $testimonials_bg = "";
             );
             if ($testimonials_list->have_posts()) { ?>
 
-                <section id="section-quotes" aria-label="section" class="text-light jarallax">
+                <section id="section-quotes" aria-label="section" class="text-light jarallax" style="padding:20px 0 20px 0;">
                     <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img"
                         alt="<?= get_post_meta($testimonials_bg[0], '_wp_attachment_image_alt', true) ?>"
                         style="filter: brightness(70%);">
+                    <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
+                        <h2>Customer Feedback</h2>
+                    </div>
                     <div class="container">
                         <div class="row">
 
@@ -174,18 +177,18 @@ $testimonials_bg = "";
                                 // the_field('description')
                                 $custom = get_post_custom($post->ID);
                                 ?>
-                                <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:10px;">
+                                <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:24px;">
                                     <div class="de-card-room">
                                         <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
                                             <div class="d-content">
-                                                <h3 style="padding-bottom: 10%; padding-left: 0px;">
+                                                <h3 style="padding-bottom: 10%; padding-left: 0px;" class="">
                                                     <?= get_the_title() ?>
                                                 </h3>
                                                 <span href="#" class="btn-main"></span>
                                             </div>
                                         </a>
                                         <div class="d-image"
-                                            data-bgimage="url(<?= isset($custom['images']) ? wp_get_attachment_url($custom['images'][0]) : "" ?>) center">
+                                            data-bgimage="url(<?= isset($custom['thumbnail']) ? wp_get_attachment_url($custom['thumbnail'][0]) : "" ?>) center">
                                         </div>
                                     </div>
                                 </div>
@@ -356,7 +359,7 @@ $testimonials_bg = "";
             $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({ default_offset_pct: 0.5, orientation: 'vertical' });
         });
     </script>
-    
+
 
 </body>
 
