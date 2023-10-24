@@ -172,31 +172,37 @@ $root = site_url();
                                                     <h3>Send Us Message</h3>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div id='name_error' class='error'>Please enter your name.</div>
                                                     <div>
                                                         <input type='text' name='Name' id='contact_name' class="form-control"
                                                             placeholder="Your Name" required>
                                                     </div>
-
-                                                    <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
                                                     <div>
                                                         <input type='email' name='Email' id='contact_email' class="form-control"
                                                             placeholder="Your Email" required>
                                                     </div>
-
-                                                    <div id='phone_error' class='error'>Please enter your phone number.</div>
                                                     <div>
                                                         <input type='text' name='phone' id='contact_phone' class="form-control"
                                                             placeholder="Your Phone" required>
                                                     </div>
+                                                    <div>
+                                                        <select name="categories_select" id="categories_select" placeholder="Select Category" style="width:100%;" required>
+                                                            <option value="categories" disabled selected>Category</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
+
                                                     <div id='message_error' class='error'>Please enter your message.</div>
                                                     <div>
                                                         <textarea name='message' id='contact_message' class="form-control"
                                                             placeholder="Your Message" required></textarea>
                                                     </div>
+
+                                                    <div style="display:flex;align-item:center;">
+                                                        <input type="file" id="attachment" name="attachment">
+                                                    </div>
                                                 </div>
+
                                                 <div class="col-md-12">
                                                     <input type="checkbox" id="contactTnc">
                                                     <label for="contactTnc">By selecting this,

@@ -71,7 +71,7 @@ $post = get_post($postid, OBJECT);
 
                     <section id="" style="padding-top:0; padding-bottom:24px;">
                         <div class="container" style="max-width:100%;">
-                            <div class="row align-items-center">
+                            <div class="row align-items-center" >
                                 <?php
                                 if (isset($custom['images'])) {
                                     $count = 1;
@@ -82,7 +82,7 @@ $post = get_post($postid, OBJECT);
                                     <?php
                                     foreach ($custom['images'] as $image) {
                                         ?>
-                                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:24px;">
+                                        <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="padding: 2px;">
                                             <div class="de-card-room images">
                                                 <img class="d-image" src="<?= wp_get_attachment_url($image) ?>"
                                                     alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>" id="img_<?= $count ?>" />

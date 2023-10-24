@@ -14,7 +14,7 @@ function display_alt_text()
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
         return $image_alt;
 
-    }else{
+    } else {
         return "";
     }
 
@@ -31,6 +31,8 @@ $post_list = new WP_Query(
         'order' => 'ASC'
     )
 );
+
+$wardrobe_array=array();
 ?>
 <style>
     a:hover {
@@ -66,11 +68,17 @@ $post_list = new WP_Query(
                                     ?>
                                     <li><a href="#">Categories</a>
                                         <ul>
+                                            <script>
+                                                var wardrobe_array = [];
+                                            </script>
                                             <?php
                                             while ($post_list->have_posts()) {
                                                 $post_list->the_post();
-                                                the_field('description');
+                                                // the_field('description');
                                                 ?>
+                                                <script>
+                                                    wardrobe_array.push("<?= the_title() ?>");
+                                                </script>
                                                 <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
                                                         <?= the_title() ?>
                                                     </a></li>

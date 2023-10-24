@@ -1,0 +1,3 @@
+.de_light .separator span:before, .de_light .separator span:after {
+    border-bottom: 1px solid #fff !important;
+}

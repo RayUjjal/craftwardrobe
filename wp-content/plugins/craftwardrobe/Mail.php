@@ -5,7 +5,15 @@
  * Description: Provides SMTP API for Sending mails
  */
 
-include('smtp/PHPMailerAutoload.php');
+session_start();
+// include('smtp/PHPMailerAutoload.php');
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+
+
+require "PHPMailer/src/PHPMailer.php";
+require "PHPMailer/src/Exception.php";
+require "PHPMailer/src/SMTP.php";
 
 $senderMail = "";
 $senderPassword = "";
@@ -39,8 +47,6 @@ function getConfig()
     }
 }
 
-
-
 function sendmail_api_init()
 {
     register_rest_route(
@@ -55,20 +61,7 @@ function sendmail_api_init()
 
 function is_local_request()
 {
-    // Check the server's IP address or a known hostname
-    $server_ip = $_SERVER['SERVER_ADDR'];
-    $server_hostname = gethostname();
-
-    $client_ip = $_SERVER['REMOTE_ADDR'];
-
-    // echo json_encode(array(
-    //     "server_ip"=>$server_ip,
-    //     "server_hostname"=> $server_hostname,
-    //     "client_ip" => $client_ip
-    // ));
-    // Add more checks if needed
-    // return ($client_ip === $server_ip) || ($client_ip === $server_hostname);
-    return true;
+    return session_status() === PHP_SESSION_ACTIVE?$_SESSION['craftwardrobe']:false;
 }
 
 function sendmail_callback()
@@ -95,6 +88,11 @@ function sendmail_callback()
         $mail->SetFrom($senderMail);
         $mail->Subject = $subject;
         $mail->Body = $message;
+        if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
+            $attachmentPath = $_FILES['attachment']['tmp_name'];
+            $attachmentName = $_FILES['attachment']['name'];
+            $mail->addAttachment($attachmentPath, $attachmentName);
+        }
         $mail->AddAddress($reciverMail);
         $mail->SMTPOptions = array(
             'ssl' => array(
@@ -103,7 +101,6 @@ function sendmail_callback()
                 'allow_self_signed' => false
             )
         );
-
 
         if (!$mail->Send()) {
             $response_arr = array(

@@ -14,6 +14,7 @@ $testimonials_bg = "";
     <?php
     include("includes/head.php");
     ?>
+    <link href="<?= $template_dir ?>/css/index.css" rel="stylesheet" type="text/css">
 </head>
 
 <body id="homepage" class="de_light">
@@ -61,7 +62,7 @@ $testimonials_bg = "";
                     </section>
                     <!-- section close -->
 
-                    <section id="section-intro" class="pt60" data-bgcolor="#efe7d3">
+                    <section id="section-intro">
                         <div class="container" style="margin:0; max-width: 100% !important;">
                             <div class="row align-items-center">
                                 <?php
@@ -100,6 +101,59 @@ $testimonials_bg = "";
             ?>
 
             <?php
+            $category_list = new WP_Query(
+                array(
+                    'post_type' => 'wardrobes',
+                    'post_status' => 'publish',
+                    'orderby' => 'title',
+                    'order' => 'ASC'
+                )
+            );
+            if ($category_list->have_posts()) { ?>
+                <section id="section-text" style="background-color: var(--primary-color-1);">
+                    <div class="container" style="max-width:100%;">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
+                                <h2 style="color:#fff;">Our Categories</h2>
+                                <div class="separator mt0"><span><i class="fa fa-circle"></i></span></div>
+                                <p style="color:#d9d9d9;">With a focus on furnitures, explore a wide selection of
+                                    top-quality products designed to
+                                    elevate your living spaces with comfort and elegance.</p>
+                            </div>
+                            <?php
+                            while ($category_list->have_posts()) {
+                                $category_list->the_post();
+                                // the_field('description')
+                                $custom = get_post_custom($post->ID);
+                                ?>
+                                <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="padding: 2px;">
+                                    <div class="de-card-room">
+                                        <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                            <div class="d-content">
+                                                <h3 style="padding-bottom: 10%; padding-left: 0px;" class="">
+                                                    <?= get_the_title() ?>
+                                                </h3>
+                                                <span href="#" class="btn-main"></span>
+                                            </div>
+                                        </a>
+                                        <div class="d-image"
+                                            data-bgimage="url(<?= isset($custom['thumbnail']) ? wp_get_attachment_url($custom['thumbnail'][0]) : "" ?>) center">
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                            wp_reset_postdata();
+                            ?>
+                        </div>
+                    </div>
+                </section>
+                <?php
+            }
+            ?>
+
+
+            <?php
             $testimonials_list = new WP_Query(
                 array(
                     'post_type' => 'testimonials',
@@ -108,7 +162,8 @@ $testimonials_bg = "";
             );
             if ($testimonials_list->have_posts()) { ?>
 
-                <section id="section-quotes" aria-label="section" class="text-light jarallax" style="padding:20px 0 20px 0;">
+                <section id="section-quotes" aria-label="section" class="text-light jarallax"
+                    style="padding:20px 0 20px 0;">
                     <img src="<?= wp_get_attachment_url($testimonials_bg[0]) ?>" class="jarallax-img"
                         alt="<?= get_post_meta($testimonials_bg[0], '_wp_attachment_image_alt', true) ?>"
                         style="filter: brightness(70%);">
@@ -144,58 +199,6 @@ $testimonials_bg = "";
                                     ?>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <?php
-            }
-            ?>
-
-
-            <?php
-            $category_list = new WP_Query(
-                array(
-                    'post_type' => 'wardrobes',
-                    'post_status' => 'publish',
-                    'orderby' => 'title',
-                    'order' => 'ASC'
-                )
-            );
-            if ($category_list->have_posts()) { ?>
-                <section id="section-text">
-                    <div class="container" style="max-width:100%;">
-                        <div class="row align-items-center">
-                            <div class="col-md-6 offset-md-3 text-center wow fadeInUp">
-                                <h2>Our Categories</h2>
-                                <div class="separator mt0"><span><i class="fa fa-circle"></i></span></div>
-                                <p>With a focus on furnitures, explore a wide selection of top-quality products designed to
-                                    elevate your living spaces with comfort and elegance.</p>
-                            </div>
-                            <?php
-                            while ($category_list->have_posts()) {
-                                $category_list->the_post();
-                                // the_field('description')
-                                $custom = get_post_custom($post->ID);
-                                ?>
-                                <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="margin-top:24px;">
-                                    <div class="de-card-room">
-                                        <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
-                                            <div class="d-content">
-                                                <h3 style="padding-bottom: 10%; padding-left: 0px;" class="">
-                                                    <?= get_the_title() ?>
-                                                </h3>
-                                                <span href="#" class="btn-main"></span>
-                                            </div>
-                                        </a>
-                                        <div class="d-image"
-                                            data-bgimage="url(<?= isset($custom['thumbnail']) ? wp_get_attachment_url($custom['thumbnail'][0]) : "" ?>) center">
-                                        </div>
-                                    </div>
-                                </div>
-                                <?php
-                            }
-                            wp_reset_postdata();
-                            ?>
                         </div>
                     </div>
                 </section>
@@ -247,7 +250,7 @@ $testimonials_bg = "";
 
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-12 offset-lg-6 " data-animation="fadeInRight" data-delay="200">
+                                <div class="col-lg-6 offset-lg-6" data-animation="fadeInRight" data-delay="200">
                                     <div class="inner-padding contactForm">
                                         <form name="contactForm" id='contact_form' method="post"
                                             onsubmit="sendMail();return false">
@@ -256,31 +259,38 @@ $testimonials_bg = "";
                                                     <h3>Send Us Message</h3>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <div id='name_error' class='error'>Please enter your name.</div>
                                                     <div>
                                                         <input type='text' name='Name' id='contact_name' class="form-control"
                                                             placeholder="Your Name" required>
                                                     </div>
-
-                                                    <div id='email_error' class='error'>Please enter your valid E-mail ID.</div>
                                                     <div>
                                                         <input type='email' name='Email' id='contact_email' class="form-control"
                                                             placeholder="Your Email" required>
                                                     </div>
-
-                                                    <div id='phone_error' class='error'>Please enter your phone number.</div>
                                                     <div>
                                                         <input type='text' name='phone' id='contact_phone' class="form-control"
                                                             placeholder="Your Phone" required>
                                                     </div>
+                                                    <div>
+                                                        <select name="categories_select" id="categories_select"
+                                                            placeholder="Select Category" style="width:100%;" required>
+                                                            <option value="categories" disabled selected>Category</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                                 <div class="col-md-6">
+
                                                     <div id='message_error' class='error'>Please enter your message.</div>
                                                     <div>
                                                         <textarea name='message' id='contact_message' class="form-control"
                                                             placeholder="Your Message" required></textarea>
                                                     </div>
+
+                                                    <div>
+                                                        <input type="file" id="attachment" name="attachment">
+                                                    </div>
                                                 </div>
+
                                                 <div class="col-md-12">
                                                     <input type="checkbox" id="contactTnc">
                                                     <label for="contactTnc">By selecting this,
@@ -296,6 +306,7 @@ $testimonials_bg = "";
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div><b id="contact_error"></b></div>
+                                                    <span id="loader"><i class="fa fa-circle-o-notch fa-spin"></i>   Processing.....</span>
                                                 </div>
                                             </div>
                                         </form>

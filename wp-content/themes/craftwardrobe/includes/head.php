@@ -32,3 +32,12 @@
     sessionStorage.setItem("template_dir", "<?= get_template_directory_uri() ?>");
     sessionStorage.setItem("root", "<?= site_url() ?>");
 </script>
+
+<?php
+session_start();
+if (session_status() === PHP_SESSION_ACTIVE) {
+    $_SESSION['craftwardrobe'] = true;
+} else {
+    echo "Session is not started.";
+}
+?>
