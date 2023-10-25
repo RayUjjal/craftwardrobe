@@ -79,7 +79,7 @@ $wardrobe_array=array();
                                                 <script>
                                                     wardrobe_array.push("<?= the_title() ?>");
                                                 </script>
-                                                <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                                <li><a href="<?= $root ?>/contact-us">
                                                         <?= the_title() ?>
                                                     </a></li>
                                                 <?php
@@ -91,6 +91,7 @@ $wardrobe_array=array();
                                     <?php
                                 }
                                 ?>
+                                <li id="nav_contactus" style="display:none;"><a href="<?= $root ?>/contact-us">Contact Us</a></li>
                             </ul>
                         </nav>
                         <!-- mainmenu close -->

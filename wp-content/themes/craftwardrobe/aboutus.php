@@ -18,7 +18,6 @@ $root = site_url();
 <body id="homepage" class="de_light">
 
   <div id="wrapper">
-
     <!-- header begin -->
     <?= get_header() ?>
     <!-- header close -->
@@ -125,6 +124,11 @@ $root = site_url();
         wp_reset_postdata();
       }
       ?>
+      <section id="">
+        <div class="container">
+          <?php echo do_shortcode("[catch-instagram-feed-gallery-widget]"); ?>
+        </div>
+      </section>
     </div>
 
     <!-- footer begin -->

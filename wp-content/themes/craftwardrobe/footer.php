@@ -16,6 +16,7 @@ $post_list = new WP_Query(
         <div class="row">
             <div class="col-lg-3">
                 <img src="<?= get_header_image() ?>" class="logo-small" alt="<?= display_alt_text(); ?>">
+                <?= do_shortcode("[insta-gallery id='0']"); ?>
             </div>
 
             <!-- <div class="col-lg-3">

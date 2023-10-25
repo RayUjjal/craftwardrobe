@@ -361,6 +361,12 @@ header.smaller.no-border:not(.header-bottom):not(.side-header) {
 header.smaller:not(.header-bottom):not(.side-header):not(.force-header-mobile) div#logo {
 	height: 70px;
 }
+@media only screen and (max-width: 1199px)
+{
+	#nav_contactus{
+		display: block !important;
+	}
+}
 
 .logo-smaller div#logo {
 	width: 150px;
