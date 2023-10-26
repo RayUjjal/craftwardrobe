@@ -122,6 +122,10 @@ $post_list = new WP_Query(
                                 </span>
                             </address>
                         </div>
+                        <div class="instagram_feed">
+                            <h3>Instagram Feed</h3>
+                            <?php echo do_shortcode("[catch-instagram-feed-gallery-widget title='' number='9']"); ?>
+                        </div>
                     </div>
 
                     <?php

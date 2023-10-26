@@ -15,6 +15,7 @@
 <link href="<?= $template_dir ?>/css/style.css" rel="stylesheet" type="text/css">
 <link href="<?= $template_dir ?>/css/color.css" rel="stylesheet" type="text/css">
 <link href="<?= $template_dir ?>/css/popup.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?= $template_dir ?>/css/footer.css" type="text/css">
 
 <!-- custom background -->
 <link rel="stylesheet" href="<?= $template_dir ?>/css/bg.css" type="text/css">

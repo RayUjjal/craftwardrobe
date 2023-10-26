@@ -1,0 +1,74 @@
+.catch-instagram-feed-gallery-widget-wrapper {
+    /* Optional: Add any styling to the wrapper as needed */
+    padding: 0 40% 0 0;
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    padding: 0;
+    margin: 0;
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper li {
+    flex: 0 1 calc(33.33% - 10px);
+    margin: 0 10px 10px 0;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper a {
+    display: block;
+    /* Make the anchor element a block to fill the image container */
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    /* Automatically adjust the height to maintain aspect ratio */
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper ul li a i {
+    display: none !important;
+}
+
+@media only screen and (max-width: 912px) {
+    .catch-instagram-feed-gallery-widget-wrapper {
+        /* Optional: Add any styling to the wrapper as needed */
+        padding: 0;
+    }
+
+    .catch-instagram-feed-gallery-widget-image-wrapper ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        /* justify-content: space-between; */
+        padding: 0;
+        margin: 0;
+    }
+
+    .catch-instagram-feed-gallery-widget-image-wrapper li {
+        flex: 0 1 calc(50% - 10px);
+        margin: 0 0 20px 10px;
+        height: 170px;
+        text-align: center;
+    }
+
+    .catch-instagram-feed-gallery-widget-image-wrapper a {
+        display: block;
+    }
+
+    .catch-instagram-feed-gallery-widget-image-wrapper img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .catch-instagram-feed-gallery-widget-image-wrapper ul li a i {
+        display: none !important;
+    }
+}

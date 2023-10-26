@@ -124,11 +124,6 @@ $root = site_url();
         wp_reset_postdata();
       }
       ?>
-      <section id="">
-        <div class="container">
-          <?php echo do_shortcode("[catch-instagram-feed-gallery-widget]"); ?>
-        </div>
-      </section>
     </div>
 
     <!-- footer begin -->
