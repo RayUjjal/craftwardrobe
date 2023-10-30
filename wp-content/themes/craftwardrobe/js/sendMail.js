@@ -89,6 +89,12 @@ jQuery(document).ready(function () {
     });
 
     const delay = 6000;
+
+    const optionObjOther = document.createElement("option");
+    optionObjOther.textContent = "Other";
+    optionObjOther.value = "Other";
+    document.getElementById("categories_select").appendChild(optionObjOther);
+    
     const intervalId = setInterval(() => {
         console.log("popup display");
         $(".popup_container").removeClass("closePopup");
@@ -100,7 +106,7 @@ jQuery(document).ready(function () {
     setTimeout(() => {
         clearInterval(intervalId);
     }, delay);
-    
+
     $(".close").on("click", () => {
         clearInterval(intervalId);
         $(".popup_container").addClass("closePopup");
