@@ -100,6 +100,10 @@ body.no-scroll::-webkit-scrollbar {
 	display: none;
 }
 
+.bannerheading {
+	font-size: 100px !important;
+}
+
 .noselect {
 	-webkit-touch-callout: none;
 	/* iOS Safari */
@@ -361,9 +365,9 @@ header.smaller.no-border:not(.header-bottom):not(.side-header) {
 header.smaller:not(.header-bottom):not(.side-header):not(.force-header-mobile) div#logo {
 	height: 70px;
 }
-@media only screen and (max-width: 1199px)
-{
-	#nav_contactus{
+
+@media only screen and (max-width: 1199px) {
+	#nav_contactus {
 		display: block !important;
 	}
 }
@@ -2459,9 +2463,9 @@ header.smaller.header-scroll:not(.autoshow) {
 	background-color: var(--primary-color-1);
 	border-radius: 5px;
 	color: #fff;
-    font-weight: 500;
-    font-size: 12px;
-    padding: 0 10px;
+	font-weight: 500;
+	font-size: 12px;
+	padding: 0 10px;
 }
 
 #contact_form input::file-selector-button:hover {
@@ -2469,14 +2473,12 @@ header.smaller.header-scroll:not(.autoshow) {
 	transition: .3s;
 }
 
-#contact_form input[type=file]{
+#contact_form input[type=file] {
 	color: #000;
 	background-color: #ffffff00;
 }
 
-#contact_form input::file-selector-button
-
-.de_light #contact_form input[type=text],
+#contact_form input::file-selector-button .de_light #contact_form input[type=text],
 .de_light #contact_form textarea,
 .de_light #contact_form input[type=email],
 .de_light #search,

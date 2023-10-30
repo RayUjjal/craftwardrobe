@@ -52,7 +52,7 @@ $root = site_url();
                                                 alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>" />
                                             <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195"
                                                 data-speed="800" data-start="500" data-easing="easeInOutExpo" data-endspeed="400">
-                                                <h1>
+                                                <h1 class="bannerheading">
                                                     <?= isset($custom['heading']) ? $custom['heading'][0] : "" ?>
                                                 </h1>
                                             </div>

@@ -88,7 +88,7 @@ jQuery(document).ready(function () {
         document.getElementById("categories_select").appendChild(optionObj);
     });
 
-    const delay = 3000;
+    const delay = 6000;
     const intervalId = setInterval(() => {
         console.log("popup display");
         $(".popup_container").removeClass("closePopup");
