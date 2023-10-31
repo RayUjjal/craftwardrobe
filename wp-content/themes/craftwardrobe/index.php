@@ -31,6 +31,7 @@ $testimonials_bg = "";
             $home_list = new WP_Query(
                 array(
                     'post_type' => 'home',
+                    'posts_per_page' => 100,
                     'post_status' => 'publish'
                 )
             );
@@ -105,6 +106,7 @@ $testimonials_bg = "";
                 array(
                     'post_type' => 'wardrobes',
                     'post_status' => 'publish',
+                    'posts_per_page' => 100,
                     'orderby' => 'title',
                     'order' => 'ASC'
                 )
@@ -157,6 +159,7 @@ $testimonials_bg = "";
             $testimonials_list = new WP_Query(
                 array(
                     'post_type' => 'testimonials',
+                    'posts_per_page' => 100,
                     'post_status' => 'publish'
                 )
             );
@@ -218,6 +221,7 @@ $testimonials_bg = "";
             $contact_list = new WP_Query(
                 array(
                     'post_type' => 'contactus',
+                    'posts_per_page' => 100,
                     'post_status' => 'publish'
                 )
             );

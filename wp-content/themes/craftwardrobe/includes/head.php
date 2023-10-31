@@ -35,7 +35,6 @@
 </script>
 
 <?php
-session_start();
 if (session_status() === PHP_SESSION_ACTIVE) {
     $_SESSION['craftwardrobe'] = true;
 } else {

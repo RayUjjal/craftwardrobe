@@ -29,6 +29,7 @@ $root = site_url();
       $home_list = new WP_Query(
         array(
           'post_type' => 'aboutus',
+          'posts_per_page' => 100,
           'post_status' => 'publish'
         )
       );

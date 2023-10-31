@@ -104,6 +104,11 @@ body.no-scroll::-webkit-scrollbar {
 	font-size: 100px !important;
 }
 
+.blog-category{
+	background: var(--primary-color-2) !important;
+	color: #fff !important;
+}
+
 .noselect {
 	-webkit-touch-callout: none;
 	/* iOS Safari */

@@ -91,6 +91,7 @@ $wardrobe_array=array();
                                     <?php
                                 }
                                 ?>
+                                <li><a href="<?= $root ?>/blogs-listing">Blogs</a></li>
                                 <li id="nav_contactus" style="display:none;"><a href="<?= $root ?>/contact-us">Contact Us</a></li>
                             </ul>
                         </nav>
