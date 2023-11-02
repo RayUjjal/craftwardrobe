@@ -130,7 +130,7 @@ $testimonials_bg = "";
                                 ?>
                                 <div class="col-lg-4 wow fadeInRight" data-wow-delay=".3s" style="padding: 2px;">
                                     <div class="de-card-room">
-                                        <a class="d-overlay" href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                        <a class="d-overlay" href="<?= $root."/wardrobe?postName=".get_post_field('post_name', $post->ID)?>">
                                             <div class="d-content">
                                                 <h3 style="padding-bottom: 10%; padding-left: 0px;" class="">
                                                     <?= get_the_title() ?>

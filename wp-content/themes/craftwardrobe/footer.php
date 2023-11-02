@@ -48,7 +48,7 @@ $policy_list = new WP_Query(
                             while ($post_list->have_posts()) {
                                 $post_list->the_post();
                                 ?>
-                                <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                <li><a href="<?= $root."/wardrobe?postName=".get_post_field('post_name', $post->ID)?>">
                                         <?= the_title() ?>
                                     </a></li>
                                 <?php
