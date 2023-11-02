@@ -15,7 +15,7 @@ $root = site_url();
   ?>
 </head>
 
-<body id="homepage" class="de_light">
+<body class="de_light">
 
   <div id="wrapper">
     <!-- header begin -->

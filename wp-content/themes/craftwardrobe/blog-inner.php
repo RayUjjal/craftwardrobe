@@ -32,7 +32,7 @@ $postTitle = get_the_title();
     <link href="<?= $template_dir ?>/css/blog-inner.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="homepage" class="de_light">
+<body class="de_light">
 
     <div id="wrapper">
         <!-- header begin -->

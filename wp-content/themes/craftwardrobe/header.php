@@ -79,7 +79,7 @@ $wardrobe_array=array();
                                                 <script>
                                                     wardrobe_array.push("<?= the_title() ?>");
                                                 </script>
-                                                <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
+                                                <li><a href="<?= $root."/wardrobe?postName=".get_post_field('post_name', $post->ID)?>">
                                                         <?= the_title() ?>
                                                     </a></li>
                                                 <?php

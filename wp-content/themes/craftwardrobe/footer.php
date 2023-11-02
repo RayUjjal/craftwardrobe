@@ -10,6 +10,16 @@ $post_list = new WP_Query(
         'order' => 'ASC'
     )
 );
+
+$policy_list = new WP_Query(
+    array(
+        'post_type' => 'policy',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC'
+    )
+);
 ?>
 <footer>
     <div class="container">
@@ -37,7 +47,6 @@ $post_list = new WP_Query(
                         if ($post_list->have_posts()) {
                             while ($post_list->have_posts()) {
                                 $post_list->the_post();
-                                the_field('description');
                                 ?>
                                 <li><a href="<?= $root ?>/wardrobe?postID=<?= $post->ID ?>">
                                         <?= the_title() ?>
@@ -139,7 +148,24 @@ $post_list = new WP_Query(
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    &copy; 2023 Craft Wardrobe, Inc. All rights reserved.<br>
+                    &copy; 2023 Craft Wardrobe, Inc. All rights reserved. |
+                    <?php
+                    if ($policy_list->have_posts()) {
+                        $post_count = $policy_list->found_posts;
+                    
+                        for ($i = 0; $policy_list->have_posts(); $i++) {
+                            $policy_list->the_post();
+                            ?>
+                            <a href="<?= $root."/policy?id=".get_post_field('post_name', $post->ID); ?>" style="color: var(--primary-color-2);"><?= get_the_title() ?></a>
+                            <?php
+                            if ($i !== ($post_count - 1)) {
+                                echo ", ";
+                            }
+                        }
+                        wp_reset_postdata();
+                    }
+                    ?>
+                    <br>
                     Designed and developed by <span class="id-color"><a href="https://ujjalray.com/"
                             style="color: var(--primary-color-2);" target="_blank">@UjjalRay</a></span> &
                     <span><a href="https://www.linkedin.com/in/rishabhdaliya/" style="color: var(--primary-color-2);"

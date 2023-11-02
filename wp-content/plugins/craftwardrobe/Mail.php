@@ -55,6 +55,7 @@ function sendmail_api_init()
         array(
             'methods' => 'POST',
             'callback' => 'sendmail_callback',
+            'permission_callback' => '__return_true'
         )
     );
 }

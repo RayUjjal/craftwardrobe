@@ -4,9 +4,9 @@
 $template_dir = get_template_directory_uri();
 $root = site_url();
 
-$postid = $_GET['postID'];
+$postName = $_GET['postName'];
 
-$post = get_post($postid, OBJECT);
+$post = get_page_by_path($postName, OBJECT, 'wardrobes');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,20 +21,20 @@ $post = get_post($postid, OBJECT);
     <link href="<?= $template_dir ?>/css/wardrobes.css" rel="stylesheet" type="text/css">
 </head>
 
-<body id="homepage" class="de_light">
+<body class="de_light">
 
     <div id="wrapper">
 
         <!-- header begin -->
         <?= get_header() ?>
-        <?php $post = get_post($postid, OBJECT); ?>
         <!-- header close -->
         <?php
         $post_list = new WP_Query(
             array(
+                'name' => $postName,
                 'post_type' => 'wardrobes',
                 'post_status' => 'publish',
-                'p' => $postid
+                // 'p' => $postid
             )
         );
         ?>

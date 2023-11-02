@@ -88,7 +88,7 @@ jQuery(document).ready(function () {
         document.getElementById("categories_select").appendChild(optionObj);
     });
 
-    const delay = 6000;
+    const delay = 8000;
 
     const optionObjOther = document.createElement("option");
     optionObjOther.textContent = "Other";

@@ -1,6 +1,10 @@
 .catch-instagram-feed-gallery-widget-wrapper {
     /* Optional: Add any styling to the wrapper as needed */
-    padding: 0 40% 0 0;
+    padding: 0 15% 0 0;
+}
+
+.catch-instagram-feed-gallery-widget-image-wrapper{
+    width: 215px;
 }
 
 .catch-instagram-feed-gallery-widget-image-wrapper ul {
@@ -13,7 +17,7 @@
 }
 
 .catch-instagram-feed-gallery-widget-image-wrapper li {
-    flex: 0 1 calc(33.33% - 10px);
+    /* flex: 0 1 calc(33.33% - 10px); */
     margin: 0 10px 10px 0;
     width: 50px;
     height: 50px;
@@ -42,6 +46,10 @@
         padding: 0;
     }
 
+    .catch-instagram-feed-gallery-widget-image-wrapper{
+        width: 100%;
+    }
+    
     .catch-instagram-feed-gallery-widget-image-wrapper ul {
         list-style: none;
         display: flex;
