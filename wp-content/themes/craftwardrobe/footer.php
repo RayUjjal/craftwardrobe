@@ -159,7 +159,7 @@ $policy_list = new WP_Query(
                             <a href="<?= $root."/policy?id=".get_post_field('post_name', $post->ID); ?>" style="color: var(--primary-color-2);"><?= get_the_title() ?></a>
                             <?php
                             if ($i !== ($post_count - 1)) {
-                                echo ", ";
+                                echo "| ";
                             }
                         }
                         wp_reset_postdata();
