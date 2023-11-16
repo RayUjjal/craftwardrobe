@@ -240,13 +240,6 @@ $testimonials_bg = "";
                                     <img src="<?= wp_get_attachment_url($image) ?>"
                                         alt="<?= get_post_meta($image, '_wp_attachment_image_alt', true) ?>"
                                         style="object-fit: cover; width: 100%; height: 100%; padding: 0;">
-                                    <div class="tp-caption ultra-big-white sfb text-center" data-x="center" data-y="195"
-                                        data-speed="800" data-start="500" data-easing="easeInOutExpo" data-endspeed="400"
-                                        style="position:relative;top:-90%;">
-                                        <h1 style="color:white;">
-                                            You've Made the <br>Right Choice!
-                                        </h1>
-                                    </div>
                                 </div>
                                 <?php
                             }
