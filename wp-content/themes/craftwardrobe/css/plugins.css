@@ -3364,6 +3364,7 @@ Copyright (c) 2013 Daniel Eden
 
 /* jpreloader */
 #jpreOverlay {
+  display: none;
   opacity: 0;
   background-color: #000000;
   position: absolute;
@@ -3372,6 +3373,7 @@ Copyright (c) 2013 Daniel Eden
 }
 
 .de_light #jpreOverlay {
+  display: none;
   background: #ffffff;
 }
 
@@ -3384,6 +3386,8 @@ Copyright (c) 2013 Daniel Eden
 }
 
 #jpreLoader {
+  display: none;
+  opacity: 0;
   position: absolute;
   top: 50% !important;
   width: 400px;
