@@ -165,11 +165,11 @@ $policy_list = new WP_Query(
                         wp_reset_postdata();
                     }
                     ?>
-                    <br>
+                    <!-- <br>
                     Designed and developed by <span class="id-color"><a href="https://ujjalray.com/"
                             style="color: var(--primary-color-2);" target="_blank">@UjjalRay</a></span> &
                     <span><a href="https://www.linkedin.com/in/rishabhdaliya/" style="color: var(--primary-color-2);"
-                            target="_blank">@Rishabhdaliya</a></span>
+                            target="_blank">@Rishabhdaliya</a></span> -->
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="social-icons">
